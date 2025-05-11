@@ -2,12 +2,7 @@
 This web application was developed as part of a university project for Network-Based Application Development (ITIS-4166). It is meant to replicate a marketplace domain and allow users to list and buy items. 
 The app utilizes Express, Mongoose, and EJS with packages such as method-override, express-session, connect-flash, and connect-mongo.
 
-This project was a great learning experience for me on Network-Based App Development and modularity. I learned how to create an Express app and store information using MongoDB Atlas, along with persistent user session and user authentication.
-
-# Installation
-1. Run `npm ci` in order to install all dependencies.
-2. Rename the .env.example file to .env and fill in any necessary information.
-3. Run with `nodemon app` and go to localhost:3000.
+This project was a great learning experience for me on Network-Based App Development and on modularity. I learned how to create an Express app and store information using MongoDB Atlas, along with persistent user session and user authentication.
 
 # Usage
 🚀 Usage
