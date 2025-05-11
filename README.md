@@ -38,4 +38,4 @@ User Features
 ![Image](https://github.com/user-attachments/assets/9e56dc16-4f59-4007-9996-e91c00c56412)
 
 ## Offer Page
-![Image](https://github.com/user-attachments/assets/7c1abbea-6115-4a35-b8aa-d76653c029b4)
+![Image](https://github.com/user-attachments/assets/08e115d5-f5b7-4832-92b9-40d27d86c120)
