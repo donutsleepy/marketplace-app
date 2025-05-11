@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+  
+<main>
+    <section id="body-container">
+        <img src="images/clay-banks-records.jpg" alt="Vinyl records">
+        <div id="content-container">
+            <h1>Dove Vinyl</h1>
+            <p>
+                Dove Vinyl is a platform for buying and selling vinyl records.<br>
+                Want to sell your old records? We can help you find a buyer. <br>
+                Looking for a specific record? We can help you find it.
+            </p>
+            <form action="/items" method="get">
+                <button type="submit">Shop Now</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include('./partials/footer.ejs') %>

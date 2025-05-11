@@ -1,0 +1,73 @@
+<%- include('../partials/header.ejs') %>
+
+<div id="profile-content">
+    <h2>Welcome, <%= user.firstName %></h2>
+
+    <div id="listing-container">
+        <h3>My Listings</h3>
+        <% if (records.length > 0) { %>
+            <div id="listing-content">
+                <div id="listing-header">
+                    <div class="listing-title"><h4>Title</h4></div>
+                    <div class="listing-status"><h4>Status</h4></div>
+                    <div class="listing-action"><h4>Action</h4></div>
+                </div>
+                <% records.forEach(record => { %>
+                    <div class="list-row">
+                        <div class="listing-title">
+                            <a href='/items/<%= record.id %>'>
+                                <p><%= record.title %></p>
+                            </a>
+                        </div>
+                        <div class="listing-status">
+                            <p><%= record.active %></p>
+                        </div>
+                        <form class="listing-action">
+                            <button class="listing-edit-btn" type="submit" formmethod="GET" formaction="/items/<%= record.id %>/edit">Edit</button>
+                            <button class="listing-delete-btn" type="submit" formmethod="POST" formaction="/items/<%= record.id %>?_method=DELETE">Delete</button>
+                            <button class="listing-offer-btn" type="submit" formmethod="GET" formaction="/items/<%= record.id %>/offers" <%= record.totalOffers === 0 ? "disabled" : null %>>View Offers</button>
+                        </form>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <div class="no-items">
+                <p>You have not listed any items yet.</p>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="offers-container">
+        <h3>My Offers</h3>
+        <% if (offers.length > 0) { %>
+            <div class="offers-content">
+                <div class="offers-header">
+                    <div class="offers-item"><h4>Record</h4></div>
+                    <div class="offers-status"><h4>Status</h4></div>
+                    <div class="offers-amount"><h4>Amount</h4></div>
+                </div>
+                <% offers.forEach(offer => { %>
+                    <div class="offer-row">
+                        <div class="offers-item">
+                            <a href='/items/<%= offer.record.id %>'>
+                                <p><%= offer.record.title %></p>
+                            </a>
+                        </div>
+                        <div class="offers-status">
+                            <p><%= offer.status %></p>
+                        </div>
+                        <div class="offers-amount">
+                            <p>$<%= offer.amount %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <div class="no-offers">
+                <p>You have not made any offers yet.</p>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

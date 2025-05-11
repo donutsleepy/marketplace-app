@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs') %>
+    <main>
+        <div class="bg-image">
+            <section id="form-container">
+                <h1>Sell Your Vinyl Records</h1>
+                <form action="/items" method="post" enctype="multipart/form-data">
+                    <label for="title">Item Name:</label>
+                    <input type="text" id="title" name="title" required>
+        
+                    <label for="genre">Genre:</label>
+                    <input type="text" id="genre" name="genre" required> 
+        
+                    <label for="artist">Artist:</label>
+                    <input type="text" id="artist" name="artist" required>
+        
+                    <label for="label">Label:</label>
+                    <input type="text" id="label" name="label" required>
+                    
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" step="0.01" required>
+                    
+                    <label for="condition">Condition:</label>
+                    <select name="condition" id="condition" required>
+                        <option value="">--Please choose an option--</option>
+                        <option value="Mint">Mint</option>
+                        <option value="Near Mint">Near Mint</option>
+                        <option value="Very Good Plus">Very Good Plus</option>
+                        <option value="Very Good">Very Good</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                        <option value="Poor">Poor</option>
+                    </select>
+                      
+                    <label for="details">Details:</label>
+                    <textarea id="details" name="details" rows="4" placeholder="Any additional information about vinyl record condition" required minLength="10"></textarea>
+        
+                    <label for="image">Upload Image:</label>
+                    <input type="file" id="image" name="image" required>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>

@@ -1,0 +1,39 @@
+<%- include('../partials/header.ejs') %>
+  
+<main>
+    <div id="collection">
+        <% if (records.length) { %>
+            <% records.forEach((record) => { %>
+                <%if (record.active === "Active") {%>
+                    <article class="product-card">
+                        <img src="<%= record.image %>" alt="<%= record.title %> Vinyl">
+                        <a href="/items/<%= record.id %>">
+                            <h3><%= record.title %></h3>
+                        </a>
+                        <div class="card-artist">
+                            <p><%= record.artist %></p>
+                        </div>
+                        <div class="card-genre">
+                            <p><%= record.genre %></p>
+                        </div>
+                        <div class="card-price">
+                            <p>$<%= record.price %></p>
+                        </div>
+                        <div class="card-condition">
+                            <p><%= record.condition %></p>
+                        </div>
+                        <div class="card-offers">
+                            <p><%=record.totalOffers%> offers</p>
+                        </div>
+                    </article>
+                <% } %>
+                <% }); %>
+        <% } else { %>
+            <div class="no-items">
+                <p>We could not find an item that matches your search criteria.</p>
+            </div>
+        <% } %>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>

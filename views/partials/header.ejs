@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel = "icon" href = "/images/monogram-16px.png" type = "image/x-icon">
+    <script src="https://kit.fontawesome.com/6ed171fa05.js" crossorigin="anonymous"></script>
+    <title>Dove Vinyl</title>
+</head>
+<body>
+    <header>
+        <div id="header-container">
+            <a href="/">
+                <img src="/images/dove-vinyl.png" alt="Dove Vinyl Logo">
+            </a>
+            <form id="search-container" method="GET" action="/items">
+                <input id="search" type="text" name=search placeholder=" What are you looking for?">
+                <i class="fas fa-search"></i>
+            </form>
+            <nav>
+                <ul>
+                    <li><a href="/items">Browse</a></li>
+                    <li><a href="/items/new">Sell</a></li>
+                    <% if (!user) { %>
+                        <li><a href="/users/new">Sign up</a></li>
+                        <li><a href="/users/login">Log in</a></li>
+                    <%} else {%>
+                        <li><a href="/users/profile">My Account</a></li>
+                        <li><a href="/users/logout">Logout</a></li>
+                    <%}%>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <% if (errorMessages.length > 0) { 
+        errorMessages.forEach(message=> { %>
+            <div class="error"> <%=message%></div>
+       <% }); 
+    } %>
+
+    <% if (successMessages.length > 0) { 
+        successMessages.forEach(message=> { %>
+            <div class="success"> <%=message%></div>
+       <% }); 
+    } %>

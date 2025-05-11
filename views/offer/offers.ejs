@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs') %>
+    <div class="offers-page">
+        <div class="offers-container">
+            <h3>My Offers</h3>
+            <% if (offers.length > 0 && record.active === "Active") { %>
+            <div class="offers-content">
+                <div class="offers-header">
+                    <div class="offers-buyer"><h4>Buyer</h4></div>
+                    <div class="offers-amount"><h4>Amount</h4></div>
+                    <div class="offers-action"><h4>Action</h4></div>
+                </div>
+                <% offers.forEach(offer => { %>
+                    <div class="offer-row">
+                        <div class="offers-buyer"><p><%= `${offer.buyer.firstName} ${offer.buyer.lastName}` %></p></div>
+                        <div class="offers-amount"><p>$<%= offer.amount %></p></div>
+                        <form class="offer-btn-container" method="POST" action="/items/<%= record._id %>/offers/<%= offer._id %>/accept">
+                            <button class="offer-accept-btn" type="submit">Accept</button>
+                        </form>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="offers-header">
+                    <div class="offers-buyer"><h4>Buyer</h4></div>
+                    <div class="offers-amount"><h4>Amount</h4></div>
+                    <div class="offers-status"><h4>Status</h4></div>
+                </div>
+                <% offers.forEach(offer => { %>
+                    <div class="offer-row">
+                        <div class="offers-buyer"><p><%= `${offer.buyer.firstName} ${offer.buyer.lastName}` %></p></div>
+                        <div class="offers-amount"><p>$<%= offer.amount %></p></div>
+                        <div class="offers-status"><p><%= offer.status %></p></div>
+                    </div>
+                <% }) %>
+            <% } %>
+            </div>
+        </div>
+    </div>
+<%- include('../partials/footer.ejs') %>

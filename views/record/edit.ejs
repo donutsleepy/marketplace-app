@@ -1,0 +1,47 @@
+<%- include('../partials/header.ejs') %>
+    <main>
+        <section class="product-container">
+            <div class="image-container">
+                <img src="<%= record.image %>" alt="<%= record.title %> Vinyl">
+            </div>
+            <div class="edit-container">
+                <form method="POST" action="/items/<%= record.id%>?_method=PUT" enctype="multipart/form-data">
+                    <label for="title">Item Name:</label>
+                    <input type="text" id="title" name="title" value="<%= record.title %>" required>
+        
+                    <label for="genre">Genre:</label>
+                    <input type="text" id="genre" name="genre" value="<%= record.genre %>" required> 
+        
+                    <label for="artist">Artist:</label>
+                    <input type="text" id="artist" name="artist" value="<%= record.artist %>" required>
+        
+                    <label for="label">Label:</label>
+                    <input type="text" id="label" name="label" value="<%= record.label %>" required>
+                    
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" step="0.01" value="<%= record.price %>" required>
+                    
+                    <label for="condition">Condition:</label>
+                    <select name="condition" id="condition" required>
+                        <option value="" disabled hidden>--Please choose an option--</option>
+                        <option value="Mint" <%= record.condition === 'Mint' ? 'selected' : '' %>>Mint</option>
+                        <option value="Near Mint" <%= record.condition === 'Near Mint' ? 'selected' : '' %>>Near Mint</option>
+                        <option value="Very Good Plus" <%= record.condition === 'Very Good Plus' ? 'selected' : '' %>>Very Good Plus</option>
+                        <option value="Very Good" <%= record.condition === 'Very Good' ? 'selected' : '' %>>Very Good</option>
+                        <option value="Good" <%= record.condition === 'Good' ? 'selected' : '' %>>Good</option>
+                        <option value="Fair" <%= record.condition === 'Fair' ? 'selected' : '' %>>Fair</option>
+                        <option value="Poor" <%= record.condition === 'Poor' ? 'selected' : '' %>>Poor</option>
+                    </select>
+                      
+                    <label for="details">Details:</label>
+                    <textarea id="details" name="details" rows="4" placeholder="Any additional information about vinyl condition" required><%= record.details %></textarea>
+                    
+                    <label for="image">Upload Image:</label>
+                    <input type="file" id="image" name="image">
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>

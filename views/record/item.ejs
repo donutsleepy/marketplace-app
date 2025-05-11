@@ -1,0 +1,55 @@
+<%- include('../partials/header.ejs') %>
+    <main>
+        <section class="product-container">
+            <div class="image-container">
+                <img src="<%= record.image %>" alt="<%= record.title %> Vinyl">
+            </div>
+            <div class="description-container">
+                <h2><%= record.title %></h2>
+                <ul>
+                    <li>
+                        <strong>Artist: </strong>
+                        <span><%= record.artist %></span>
+                    </li>
+                    <li>
+                        <strong>Genre: </strong>
+                        <span><%= record.genre %></span>
+                    </li>
+                    <li>
+                        <strong>Label: </strong>
+                        <span><%= record.label %></span>
+                    </li>
+                    <li>
+                        <strong>Condition: </strong>
+                        <span><%= record.condition %></span>
+                    </li>
+                    <li>
+                        <strong>Seller: </strong>
+                        <span><%= record.seller.firstName + ' ' + record.seller.lastName %></span>
+                    </li>
+                    <li>
+                        <strong>Price: </strong>
+                        <span>$<%= record.price %></span>
+                    </li>
+                    <li>
+                        <strong>Description: </strong>
+                        <span><%= record.details %></span>
+                    </li>
+                </ul>
+                <% if (record.active === 'Active') {%>
+                    <form class="offer-form" action="/items/<%=record._id%>/offers" method="POST">
+                        <input type="number" id="amount" name="amount" step="0.01">
+                        <button class="btn">Make an offer</button>
+                    </form>
+                <%}%>
+                <div class="higest-offer-container">
+                    <% if (record.active === 'Active') { %>
+                        <p>Current Highest Offer: $<%=record.highestOffer%></p>
+                    <% } else { %>
+                        <p>This item is no longer available for offers.</p>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
