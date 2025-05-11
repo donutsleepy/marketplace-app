@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
     <div class="offers-page">
         <div class="offers-container">
-            <h3>My Offers</h3>
+            <h3>Offers for <%= record.title %></h3>
             <% if (offers.length > 0 && record.active === "Active") { %>
             <div class="offers-content">
                 <div class="offers-header">
